@@ -1,2 +1,1 @@
-# DataStruces
-练习数据结构与算法
+写过的一下Python程序
