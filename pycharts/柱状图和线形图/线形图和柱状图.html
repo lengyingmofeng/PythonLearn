@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>柱状图和线形图</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="38997583037a4fb9a07e5dafffc2dbb0" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_38997583037a4fb9a07e5dafffc2dbb0 = echarts.init(
+            document.getElementById('38997583037a4fb9a07e5dafffc2dbb0'), 'light', {renderer: 'canvas'});
+        var option_38997583037a4fb9a07e5dafffc2dbb0 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u4e2d\u56fd",
+            "legendHoverLink": true,
+            "data": [
+                33655,
+                515879,
+                527456,
+                268065,
+                100418,
+                832470,
+                488475,
+                976170,
+                45314,
+                681785,
+                27290,
+                376501,
+                972874
+            ],
+            "showBackground": false,
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        },
+        {
+            "type": "bar",
+            "name": "\u7f8e\u56fd",
+            "legendHoverLink": true,
+            "data": [
+                9352315,
+                6257344,
+                9282060,
+                5667882,
+                9321914,
+                7089711,
+                8929181,
+                8323970,
+                7349788,
+                9209924,
+                7537284,
+                9301952,
+                343247
+            ],
+            "showBackground": false,
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        },
+        {
+            "type": "bar",
+            "name": "\u65e5\u672c",
+            "legendHoverLink": true,
+            "data": [
+                50908,
+                230075,
+                368439,
+                219387,
+                965052,
+                536319,
+                656149,
+                909642,
+                336402,
+                39778,
+                461146,
+                893324,
+                216597
+            ],
+            "showBackground": false,
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            }
+        },
+        {
+            "type": "line",
+            "name": "\u611f\u67d3\u6570",
+            "connectNulls": false,
+            "yAxisIndex": 1,
+            "symbolSize": 4,
+            "showSymbol": true,
+            "smooth": false,
+            "clip": true,
+            "step": false,
+            "data": [
+                [
+                    "1\u6708",
+                    136
+                ],
+                [
+                    "2\u6708",
+                    98
+                ],
+                [
+                    "3\u6708",
+                    108
+                ],
+                [
+                    "4\u6708",
+                    42
+                ],
+                [
+                    "5\u6708",
+                    131
+                ],
+                [
+                    "6\u6708",
+                    94
+                ],
+                [
+                    "7\u6708",
+                    75
+                ]
+            ],
+            "hoverAnimation": true,
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0
+            },
+            "zlevel": 0,
+            "z": 0
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u4e2d\u56fd",
+                "\u7f8e\u56fd",
+                "\u65e5\u672c",
+                "\u611f\u67d3\u6570"
+            ],
+            "selected": {
+                "\u4e2d\u56fd": true,
+                "\u7f8e\u56fd": true,
+                "\u65e5\u672c": true,
+                "\u611f\u67d3\u6570": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "xAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "1\u6708",
+                "2\u6708",
+                "3\u6708",
+                "4\u6708",
+                "5\u6708",
+                "6\u6708",
+                "7\u6708",
+                "8\u6708",
+                "9\u6708",
+                "10\u6708",
+                "11\u6708",
+                "12\u6708"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            }
+        }
+    ],
+    "title": {
+        "text": "\u67f1\u72b6\u56fe",
+        "link": "https://www.baidu.com"
+    }
+};
+        chart_38997583037a4fb9a07e5dafffc2dbb0.setOption(option_38997583037a4fb9a07e5dafffc2dbb0);
+    </script>
+</body>
+</html>
