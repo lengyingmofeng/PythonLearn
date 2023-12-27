@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href='{% static "bootstrap/css/bootstrap.min.css" %}'>
+    <link rel="icon" href='{% static "img/logo.png" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "admin/css/login2.css" %}'>
+    <title>中慧健康管理系统</title>
+</head>
+<body style="background-image: url('{% static "img/background.jpg"%}')";>
+<div class="content">
+    <div class="login">
+        <span class="title">
+            中慧健康管理系统
+        </span>
+        <form class="form-horizontal" action="{% url 'user:login' %}" method="POST">
+        {% csrf_token %}
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input class="form-control" id="username" name="username" placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input class="form-control" id="password" name="password" type="password" placeholder="密码">
+                    
+                </div>
+            </div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div style="color:red;padding-left:15px" >{{message}}</div>
+            {% endfor %}
+            {% endif %}
+
+            <button type="submit" style="width: 100%; background-color: #64af5f; margin-top: 15px; color: #ffffff"
+                    class="btn btn-default">登录
+            </button>
+        </form>
+    </div>
+</div>
+<footer style="width: 100%; position: absolute; bottom: 0; font-size: 12px; display: flex; justify-content: center">Copyright©️2016-2021 中慧云启科技集团 All Rights Reserved.  |  蜀ICP备2020029736号</footer>
+</body>
+</html>

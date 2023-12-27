@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+{% block base%}
+
+
+
+<div class="main">
+    <div class="title-box" style="color:#444;">
+        <h3>风险信息</h3>
+    </div>
+    <div class="table-box">
+
+        <!-- #149791 -->
+        <table class="table my-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">学号</th>
+                    <th scope="col">姓名</th>
+                    <th scope="col">电话</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">院系</th>
+                    <th scope="col">专业</th>
+                    <th scope="col">申报时间</th>
+                    <th scope="col">风险原因</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in risk_obj %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{item.student.student_code}}</td>
+                    <td>{{item.student.name}}</td>
+                    <td>{{item.student.phone}}</td>
+                    <td>{{item.student.address}}</td>
+                    <td>{{item.student.faculty}}</td>
+                    <td>{{item.student.major}}</td>
+                    <td>{{item.c_time}}</td>
+                    <td>{{item.reason}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock base%}

@@ -1,0 +1,45 @@
+{% extends './base.html' %}
+
+{% block base%}
+
+
+<div class="main">
+    <div class="title-box" style="color:#444;">
+        <h3>健康信息</h3>
+    </div>
+
+    <div class="table-box">
+
+        <table class="table my-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">学号</th>
+                    <th scope="col">姓名</th>
+                    <th scope="col">手机号码</th>
+                    <th scope="col">体温</th>
+                    <th scope="col">是否出现新冠症状</th>
+                    <th scope="col">是否途径风险区域</th>
+                    <th scope="col">申报时间</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for item in health_obj %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{item.student.student_code}}</td>
+                    <td>{{item.student.name}}</td>
+                    <td>{{item.student.phone}}</td>
+                    <td>{{item.temperature}}</td>
+                    <td>{{item.reaction}}</td>
+                    <td>{{item.risk}}</td>
+                    <td>{{item.c_time}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    {% endblock base%}

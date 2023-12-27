@@ -1,0 +1,45 @@
+a,a:link,a:visited,a:hover,a:active {
+    text-decoration: none;
+    color:inherit;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+
+    background-size: 100% 100%;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.login {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 50px;
+    border: 1px solid #3c603a;
+    height: 400px;
+    width: 350px;
+    box-shadow: 10px 10px #3c603a;
+}
+
+.title {
+    color: #d5e9c8;
+    text-shadow: 1px 1px #3c603a;
+    font-size: 35px;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}

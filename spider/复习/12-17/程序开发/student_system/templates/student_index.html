@@ -1,0 +1,142 @@
+{% extends './base.html' %}
+
+{% block base%}
+
+<div class="main">
+
+<div id="my-modal" class="modal fade" tabindex="-1" role="dialog" style="margin-top: 100px">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="text-align:center;">
+        <p id="delete-msg"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" id="my-delete" style="background-color:#149791; border-color:# 149791" class="btn btn-primary">删除</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="search">
+        <form class="form-inline float-left" action="{% url 'health:student_index' %}">
+        
+            <div class="form-group">
+                <input type="text" name="key" class="form-control" placeholder="学号/手机号">
+            </div>
+            <button type="submit" class="btn btn-primary" style="background: #149791; border-color: #149791;"><i
+                    class="iconfont"></i>搜索</button>
+        </form>
+        <a class="btn btn-primary float-right" href="{% url 'health:student_create' %}"
+            style="background: #149791; border-color: #149791;"><i class="iconfont"></i>新增</a>
+    </div>
+
+
+    
+
+    <div class="table-box">
+        <table class="table my-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">学号</th>
+                    <th scope="col">姓名</th>
+                    <th scope="col">电话</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">院系</th>
+                    <th scope="col">专业</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for item in page_obj %}
+                <tr>
+                    {% if page_obj.has_previous %}
+                        {% widthratio page_obj.previous_page_number 1 10 as start_count  %}
+                        <th scope="row"> {{ start_count|add:forloop.counter }} </th>
+                    {% else %}
+                        <th scope="row"> {{forloop.counter }} </th>
+                    {% endif %}
+                    <td>{{item.student_code}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.faculty}}</td>
+                    <td>{{item.major}}</td>
+                    <td>
+                        <a href="{% url 'health:student_update'%}?student_code={{item.student_code}}">编辑</a>
+                        <a class="deleteStudent" href="#">删除</a>
+                        {% comment %} <a id="delete_student" href="{% url 'health:student_delete'%}?student_code={{item.student_code}}">删除</a> {% endcomment %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="page">
+        <span class="total float-left page-link">共{{paginator.count}}条</span>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="{% url 'health:student_index' %}?page=1&key={{key}}">首页</a>
+            </li>
+            {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link"
+                    href="{% url 'health:student_index' %}?page={{page_obj.previous_page_number}}&key={{key}}">&lt;&lt;</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                    href="{% url 'health:student_index' %}?page={{page_obj.previous_page_number}}&key={{key}}">{{page_obj.previous_page_number}}</a>
+            </li>
+            {% endif %}
+
+            <li class="page-item"><a style="background-color: rgba(0,0,0,0.1)" class="page-link"
+                    href="#">{{current_page}}</a></li>
+
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link"
+                    href="{% url 'health:student_index'%}?page={{page_obj.next_page_number}}&key={{key}}">{{page_obj.next_page_number}}</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                    href="{% url 'health:student_index'%}?page={{page_obj.next_page_number}}&key={{key}}">&gt;&gt;</a>
+            </li>
+            {% endif %}
+            <li class="page-item"><a class="page-link"
+                    href="{% url 'health:student_index'%}?page={{paginator.num_pages}}&key={{key}}">尾页</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // 点击删除
+        $(".deleteStudent").click(function () {            
+            // 显示模态框
+            $("#my-modal").modal({'backdrop': false});
+
+            // 设置显示内容
+            studentName = $(this).parent().siblings("td:eq(1)").text()
+            $("#delete-msg").text('确定要删除 ' + studentName + ' 吗？')
+            // 设置临时值
+            studentCode = $(this).parent().siblings("td:eq(0)").text()
+            $("#my-modal").attr("student-code", studentCode)
+        });
+
+
+        $("#my-delete").click(function() {
+            // 获取临时值
+            studentCode = $("#my-modal").attr("student-code")
+            $("#my-modal").hide()
+            // 发起请求
+            $.get('{% url 'health:student_delete'%}?student_code='+studentCode, function(response) {
+                    location.reload();
+            })
+        });
+    });
+
+
+</script>
+
+{% endblock base%}
