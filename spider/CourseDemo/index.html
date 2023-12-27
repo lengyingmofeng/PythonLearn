@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var dataStr = "PG35ybn5A40B324VY6H5424490gOK05E15uU7IM#12133311132213322131"
+    var scode = dataStr.split("#")[0];
+    var sxh = dataStr.split("#")[1];
+    var code = "202013030313" + "%%%" + "Zsh-1234";
+    var encoded = "";
+    for (let i = 0; i < code.length; i++) {
+        if (i < 20) {
+            encoded = encoded + code.substring(i, i + 1) + scode.substring(0, parseInt(sxh.substring(i, i + 1)));
+            scode = scode.substring(parseInt(sxh.substring(i, i + 1)), scode.length);
+        } else {
+            encoded = encoded + code.substring(i, code.length);
+            i = code.length;
+        }
+        console.log(encoded)
+    }
+
+</script>
+<body>
+
+</body>
+</html>
