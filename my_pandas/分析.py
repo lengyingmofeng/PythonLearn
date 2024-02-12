@@ -24,13 +24,11 @@ from pandas import DataFrame
 # x = pd.Series(b)
 # print(x)
 
-
 # data = pd.read_csv('dogNames2.csv')
 # print(data.to_string())
 
 t = DataFrame(np.arange(12).reshape((3, 4)))
 print(t)
-
 
 data = [{"id": 1,  "name": "yefeng", "age": 20}]
 s = DataFrame(data, index=list("ABCD"))
